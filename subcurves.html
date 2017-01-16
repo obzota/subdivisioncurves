@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Subdivisions - Chaikins</title>
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script type="text/javascript" src="chaikin.js"></script>
-	<script type="text/javascript" src="main.js"></script>
-	<script type="text/javascript" src="three.min.js"></script>
-	<script type="text/javascript" src="underscore.js"></script>
-</head>
-<body onload=init style="margin:0px">
+    <title>Subdivision curves</title>
+    <script src="d3.v4.js"></script>
+    <script type="text/javascript" src="curvature.js"></script>
+    <script type="text/javascript" src="curve.js"></script>
+    <script type="text/javascript" src="chaikin.js"></script>
+    <script type="text/javascript" src="fourscheme.js"></script>
+    <script type="text/javascript" src="uniformspline.js"></script>
+    <script type="text/javascript" src="draw.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="three.min.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
 
-	<svg style="background-color:midnightblue; width:800; height:600" onclick="addPoint(event)">
-	</svg>
-	<button id="donebutton" onclick="updatePoly()">Draw</button>
-	<button id="resetbutton" onclick="reset()">Reset</button>
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body onload=init>
+
+    <svg onclick="addPoint(event)">
+    </svg>
+    <div id="menu">
+        <div id="resetbutton" class="button" onclick="reset()">Reset</div>
+        <div id="statbutton" class="button" onclick="curvatureOn()">Curvatures</div>
+        <div id="colorbutton" class="button" onclick="changeColors()">Colors</div>
+    </div>
+    <div id="curvature" onclick="curvatureOff()">
+
+        <svg id="chaikin" class="graph">
+            <text x="3" y="13" font-family="Verdana" font-size="15">Chaikin</text>
+        </svg>
+        <svg id="uniformspline" class="graph">
+            <text x="3" y="13" font-family="Verdana" font-size="15">Uniform spline</text>
+        </svg>
+        <svg id="fourscheme" class="graph">
+            <text x="3" y="13" font-family="Verdana" font-size="15">Four point scheme</text>
+        </svg>
+    </div>
 </body>
 </html>

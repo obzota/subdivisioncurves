@@ -7,17 +7,23 @@ function fourscheme(data, n) {
 			return [];
 		}
 
-		for (var i = 0; i < 4; i++) {
+		for (var i = 0; i < 3; i++) {
 			poly.push(poly[i].clone());
 		}
 
-		for (var i = 0; i < poly.length - 1; i++) {
+		for (var i = 0; i < poly.length - 3; i++) {
 			var a = poly[i];
 			var b = poly[i+1];
 			var c = poly[i+2];
 			var d = poly[i+3];
-			tmp.push((new THREE.Vector2()).lerpVectors(a, b, 3/16));
-			tmp.push((new THREE.Vector2()).lerpVectors(a, b, 11/16));
+
+			var res = (new THREE.Vector2())
+				.addScaledVector(a, -1/16)
+				.addScaledVector(d, -1/16)
+				.addScaledVector(b, 9/16)
+				.addScaledVector(c, 9/16);
+			tmp.push(b.clone());
+			tmp.push(res);
 		}
 		poly = tmp.slice();
 	}
