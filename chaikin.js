@@ -1,3 +1,5 @@
+let e = 1/4; // parameter
+
 function chaikin(data, n) {
 	var poly = data.slice();
 	for (var k = n - 1; k >= 0; k--) {
@@ -11,8 +13,8 @@ function chaikin(data, n) {
 		for (var i = 0; i < poly.length - 1; i++) {
 			var a = poly[i];
 			var b = poly[i+1];
-			tmp.push((new THREE.Vector2()).lerpVectors(a, b, 1/4));
-			tmp.push((new THREE.Vector2()).lerpVectors(a, b, 3/4));
+			tmp.push((new THREE.Vector2()).lerpVectors(a, b, e));
+			tmp.push((new THREE.Vector2()).lerpVectors(a, b, 1-e));
 		}
 		poly = tmp.slice();
 	}

@@ -9,6 +9,11 @@ var curves = { // also used in draw.js
 		return [this.chaikin, this.uniformspline, this.fourscheme];
 	}
 };
+
+curves.chaikin.color = "#A1BECC";
+curves.uniformspline.color = "#F9C422";
+curves.fourscheme.color = "#7AC460";
+
 var svg;
 var d3svg = d3.select('svg');
 //var curvatureDiv = $('#curvature');

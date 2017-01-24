@@ -10,6 +10,7 @@ function uniformspline3(data, n) {
 		// push two points for perfect loop
 		poly.push(poly[0].clone());
 		poly.push(poly[1].clone());
+
 		for (var i = 0; i < poly.length - 2; i++) {
 			var a = poly[i];
 			var b = poly[i+1];
